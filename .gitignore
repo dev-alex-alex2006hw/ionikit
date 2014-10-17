@@ -1,3 +1,5 @@
+.DS_Store
+
 # Logs
 logs
 *.log
@@ -26,3 +28,15 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+# cordova
+www
+platforms
+plugins
+
+# sass compile folder
+.tmp
+.sass-cache
+
+# bower
+app/bower_components
