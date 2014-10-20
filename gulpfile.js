@@ -40,7 +40,6 @@ gulp.task('serve', ['styles', 'bower-inject'], function () {
  */
 gulp.task('jshint', function () {
   return gulp.src('app/js/**/*.js')
-    .pipe($.cache('jshint'))
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'));
 });
