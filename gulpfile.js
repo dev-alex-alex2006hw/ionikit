@@ -17,7 +17,7 @@ gulp.task('default', ['clean', 'serve']);
  * serve
  * start server with browser sync enabled
  */
-gulp.task('serve', ['styles', 'bower-inject'], function () {
+gulp.task('serve', ['styles', 'bower-inject', 'js-inject'], function () {
 
   browserSync({
     notify: true,
@@ -30,7 +30,7 @@ gulp.task('serve', ['styles', 'bower-inject'], function () {
 
   gulp.watch(['app/**/*.html'], reload);
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles']);
-  gulp.watch(['app/js/**/*.js'], ['jshint', reload]);
+  gulp.watch(['app/js/**/*.js'], ['jshint', 'js-inject', reload]);
   gulp.watch(['app/images/**/*'], reload);
   gulp.watch(['./bower.json'], ['bower-inject', reload]);
 });
@@ -62,13 +62,25 @@ gulp.task('styles', function () {
 
 /*
  * bower-inject
- * inject dependencies to index.html
+ * inject bower dependencies to index.html
  */
 gulp.task('bower-inject', function () {
   gulp.src('app/index.html')
     .pipe(wiredep({
-      exclude: [ /ionic\.css/ ],
+      exclude: [ /ionic\.css/ ], //exclude ionic.css as we use sass
     }))
+    .pipe(gulp.dest('app/'));
+});
+
+/*
+ * js-inject
+ * inject project js files to index.html
+ */
+gulp.task('js-inject', function () {
+  var js = gulp.src(['app/js/**/*.js']);
+
+  gulp.src('app/index.html')
+    .pipe($.inject(js, { ignorePath: '/app', addRootSlash: false }))
     .pipe(gulp.dest('app/'));
 });
 
