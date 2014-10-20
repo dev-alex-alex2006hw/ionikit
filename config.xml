@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget id="org.ionikit.hello" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Ionikit</name>
+  <description>
+    Ionic starter kit, production ready.
+  </description>
+  <author email="hello@devfd.me" href="https://github.com/devfd/ionikit"></author>
+
+  <content src="index.html"/>
+  <access origin="*"/>
+
+  <preference name="webviewbounce" value="false"/>
+  <preference name="UIWebViewBounce" value="false"/>
+  <preference name="DisallowOverscroll" value="true"/>
+  <preference name="BackupWebStorage" value="none"/>
+
+  <!-- Force orientation to protrait -->
+  <preference name="Orientation" value="portrait" />
+  <!-- Hide splashscreen from code -->
+  <preference name="AutoHideSplashScreen" value="false"/>
+  <!-- Focus <input> and show the keyboard from code -->
+  <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
+
+  <feature name="SplashScreen">
+    <param name="ios-package" value="CDVSplashScreen"/>
+    <param name="onload" value="true"/>
+  </feature>
+</widget>
