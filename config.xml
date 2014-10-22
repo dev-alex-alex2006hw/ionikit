@@ -21,6 +21,7 @@
   <!-- Focus <input> and show the keyboard from code -->
   <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
 
+  <!-- required. otherwise splashscreen auto hide -->
   <feature name="SplashScreen">
     <param name="ios-package" value="CDVSplashScreen"/>
     <param name="onload" value="true"/>
