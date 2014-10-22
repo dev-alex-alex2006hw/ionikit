@@ -1,1 +1,45 @@
+/*
+ * Custom colors
+ */
+$stable:                          #818288;
+$light:                           #efeff4;
+$positive:                        #0087CB;
+$balanced:                        #00A03E;
+$energized:                       #FFA200;
+$dark:                            #474752;
+
+$assertive:                       #ef4e3a;
+$calm:                            #43cee6;
+$royal:                           #8a6de9;
+
+$base-background-color:           $stable;
+$base-color:                      $dark;
+
+/*
+ * Custom font
+ */
+@font-face {
+  font-family: 'OpenSansRegular';
+  src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'OpenSansBold';
+  src: url('../fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+$font-family-sans-serif:        'OpenSansRegular';
+$font-family-light-sans-serif:  'OpenSansRegular';
+$font-family-serif:             'OpenSansRegular';
+$font-family-monospace:         'OpenSansRegular';
+
 @import "ionic/ionic";
+
+html, body {
+  background-color: $dark;
+  color: $light;
+}
+
+ion-nav-view, ion-view {
+  background: white;
+}
