@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     $ = require('gulp-load-plugins')(),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
+    runSequence = require('run-sequence'),
     wiredep = require('wiredep').stream;
 
 var PORT = 8100;
@@ -28,11 +29,18 @@ gulp.task('serve', ['styles', 'bower-inject', 'js-inject'], function () {
     online: true
   });
 
-  gulp.watch(['app/**/*.html'], reload);
-  gulp.watch(['app/styles/**/*.{scss,css}'], ['styles']);
-  gulp.watch(['app/js/**/*.js'], ['jshint', 'js-inject', reload]);
-  gulp.watch(['app/images/**/*'], reload);
-  gulp.watch(['./bower.json'], ['bower-inject', reload]);
+  $.watch(['app/**/*.html'], reload);
+
+  $.watch(['app/styles/**/*.{scss,css}'], function() {
+    return runSequence('styles');
+  });
+
+  $.watch(['app/js/**/*.js'], function() {
+    return runSequence('jshint', 'js-inject');
+  });
+
+  $.watch(['app/images/**/*'], reload);
+  $.watch(['./bower.json'], ['bower-inject', reload]);
 });
 
 /*
