@@ -1,7 +1,11 @@
 'use strict';
+
 angular.module('App', [
   'ionic',
   'ngCordova',
+  'app.intro',
+  'app.login',
+  'app.ionikit'
 ])
 
 .run(function($ionicPlatform, $window, $cordovaStatusbar, $cordovaKeyboard) {
@@ -17,10 +21,17 @@ angular.module('App', [
   });
 })
 
-.config(function() {
+.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
+  $stateProvider
+    .state('app', {
+      url: '/app',
+      templateUrl: 'js/app.tpl.html',
+      controller: 'AppController'
+    });
 
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
+  $urlRouterProvider.otherwise('/intro');
+})
+
+.controller('AppController', function() {
+
 });

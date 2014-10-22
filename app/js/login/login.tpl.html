@@ -1,0 +1,21 @@
+<ion-content class="" padding="false" scroll="false">
+
+<div class="list">
+  <form>
+    <label class="item item-input">
+      <i class="icon ion-ios7-email placeholder-icon"></i>
+      <input type="email" ng-model="user.email" placeholder="Adresse email" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </label>
+    <label class="item item-input">
+      <i class="icon ion-ios7-locked placeholder-icon"></i>
+      <input type="password" ng-model="user.password" placeholder="Mot de passe" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </label>
+
+    <button ng-disabled="loading" class="button button-positive" nav-clear ng-click="logIn(user)">
+      Connexion
+      <i ng-if="loading" class="icon ion-loading-c"></i>
+    </button>
+  </form>
+</div>
+
+</ion-content>
