@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     $ = require('gulp-load-plugins')(),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
+    shell = require('shelljs'),
     karma = require('karma').server,
     runSequence = require('run-sequence'),
     wiredep = require('wiredep').stream;
@@ -104,3 +105,22 @@ gulp.task('clean', function() {
   return gulp.src(['www', '.tmp'], { read: false })
     .pipe($.rimraf());
 });
+
+/*
+ * prepare
+ * copy everything to www/ then exec cordova prepare
+ * no code optimisations
+ */
+gulp.task('prepare', function(done) {
+  runSequence('clean', 'styles', 'bower-inject', 'js-inject', 'copy-www', function() {
+    $.util.log('running cordova prepare...');
+
+    shell.exec('cordova prepare', function(code, output) {
+      if(output) { console.log(output); }
+      done();
+    });
+
+  });
+});
+
+try { require('require-dir')('tasks'); } catch (err) { console.error(err); }
