@@ -10,8 +10,8 @@ Develop and build production ready Ionic applications in no time.
 * live testing with autoreload from anywhere (desktop + mobile)
 * automatic css and js import to index.html ✓
 * custom Ionic theme with sass √
-* icons and splashscreen generation with the correct names and sizes
-* splashscreen hiding when app is fully ready
+* icons and splashscreen generation with the correct names and sizes √
+* splashscreen hiding when app is fully ready √
 * google analytics integration for tracking errors and views
 * cordova plugin versioning and installation √
 * js and css assets optimisation
@@ -20,7 +20,7 @@ Develop and build production ready Ionic applications in no time.
 
 ## End result
 
-## How to use
+## How to use - web
 
 Install dependencies:
 
@@ -29,5 +29,31 @@ npm install -g gulp cordova ionic bower
 npm install && bower install
 ```
 
-Then start the project:
-`gulp`
+Also make sure you have imagemagick
+```
+brew install imagemagick
+```
+
+Then execute `gulp`. The browser auto refresh on file change.
+
+## How to use - mobile
+
+```
+# first make sure to change project id and name in config.xml
+
+# generate android and ios projects
+./platforms_install.sh
+
+# generate application icon and splashscreen
+gulp resources
+
+# copy project files to platforms
+gulp prepare
+
+# to start ios
+cordova run ios
+
+# to start android
+cordova run android
+
+```
