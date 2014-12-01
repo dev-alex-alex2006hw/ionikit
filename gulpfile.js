@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     $ = require('gulp-load-plugins')(),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
+    karma = require('karma').server,
     runSequence = require('run-sequence'),
     wiredep = require('wiredep').stream;
 
@@ -27,6 +28,10 @@ gulp.task('serve', ['styles', 'bower-inject', 'js-inject'], function () {
     },
     port: PORT,
     online: true
+  });
+
+  karma.start({
+    configFile: __dirname + '/karma.conf.js'
   });
 
   $.watch(['app/**/*.html'], reload);
