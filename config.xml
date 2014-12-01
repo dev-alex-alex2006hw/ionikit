@@ -9,6 +9,10 @@
   <content src="index.html"/>
   <access origin="*"/>
 
+  <!-- allow call and sms from href -->
+  <access origin="tel:*" launch-external="yes"/>
+  <access origin="mailto:*" launch-external="yes"/>
+
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
@@ -20,6 +24,15 @@
   <preference name="AutoHideSplashScreen" value="false"/>
   <!-- Focus <input> and show the keyboard from code -->
   <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
+
+  <!-- minimun android version -->
+  <preference name="android-minSdkVersion" value="15"/>
+
+  <!-- splash screen configuration -->
+  <preference name="AutoHideSplashScreen" value="false"/>
+  <preference name="auto-hide-splash-screen" value="false"/>
+  <preference name="SplashScreen" value="screen"/>
+  <preference name="SplashScreenDelay" value="20000"/>
 
   <!-- required. otherwise splashscreen auto hide -->
   <feature name="SplashScreen">
