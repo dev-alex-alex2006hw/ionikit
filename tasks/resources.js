@@ -17,7 +17,7 @@ function projectName(callback) {
 }
 
 function generateAndroidIcons(projectName, platformPath, callback) {
-  var icon = 'app/res/icon.png',
+  var icon = 'app/resources/icon.png',
       fullPath = platformPath + 'res',
       cmd = ['convert', icon,
       '\\( +clone -resize x36 -write ' + fullPath + '/drawable-ldpi/icon.png +delete \\)',
@@ -35,7 +35,7 @@ function generateAndroidIcons(projectName, platformPath, callback) {
 }
 
 function generateIosIcons(projectName, platformPath, callback) {
-    var icon = 'app/res/icon.png',
+    var icon = 'app/resources/icon.png',
     fullPath = platformPath + projectName + '/Resources/icons',
     cmd = ['convert', icon,
     '\\( +clone -resize x29 -write ' + fullPath + '/icon-small.png +delete \\)',
@@ -63,7 +63,7 @@ function generateIosIcons(projectName, platformPath, callback) {
 }
 
 function generateIosSplash(projectName, platformPath, callback) {
-  var icon = 'app/res/splashscreen.png',
+  var icon = 'app/resources/splashscreen.png',
       fullPath = platformPath + projectName + '/Resources/splash',
       cmd = ['convert', icon,
       '\\( +clone -resize 640x1136\\^ -gravity center -crop 640x1136+0+0 -write ' + fullPath + '/Default-568h@2x~iphone.png +delete \\)',
@@ -80,7 +80,7 @@ function generateIosSplash(projectName, platformPath, callback) {
 }
 
 function generateAndroidSplash(projectName, platformPath, callback) {
-  var icon = 'app/res/splashscreen.png',
+  var icon = 'app/resources/splashscreen.png',
       fullPath = platformPath + 'res',
       cmd = ['convert', icon,
       '\\( +clone -resize 200x320\\^ -gravity center -crop 200x320+0+0 -write ' + fullPath + '/drawable-port-ldpi/screen.png +delete \\)',
